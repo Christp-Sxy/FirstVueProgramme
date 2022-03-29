@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <button id="btn1">显示</button>
+  <button id="btn2">隐藏</button>
+  <button id="btn3">切换</button>
+  <div></div>
+  <script>
+    $("#btn1").click(function(){
+      // console.log(this);
+      $("div").show();
+    })
+    $("#btn2").click(function(){
+      // console.log(this);
+      $("div").hide();
+    })
+    $("#btn3").click(function(){
+      // console.log(this);
+      $("div").toggle();
+    })
+  </script>
+</body>
+</html>
