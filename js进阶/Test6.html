@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #header {
+      width: 100%;
+      height: 60px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <p>第1个标签</p>
+  <p>第2个标签</p>
+  <p>第3个标签</p>
+  <p>第4个标签</p>
+  <p>第5个标签</p>
+  <p>第6个标签</p>
+  <p>第7个标签</p>
+  <div id="header"></div>
+  <p>第8个标签</p>
+  <p>第9个标签</p>
+  <p>第10个标签</p>
+  <p>第11个标签</p>
+  <p>第12个标签</p>
+  <p>第13个标签</p>
+  <p>第14个标签</p>
+  <p>第15个标签</p>
+  <p>第16个标签</p>
+  <p>第17个标签</p>
+  <p>第18个标签</p>
+  <p>第19个标签</p>
+  <p>第20个标签</p>
+  <p>第21个标签</p>
+  <p>第22个标签</p>
+  <p>第23个标签</p>
+  <p>第24个标签</p>
+  <p>第25个标签</p>
+  <p>第26个标签</p>
+  <p>第27个标签</p>
+  <p>第28个标签</p>
+  <p>第29个标签</p>
+  <p>第30个标签</p>
+  <p>第31个标签</p>
+  <p>第32个标签</p>
+  <p>第33个标签</p>
+  <p>第34个标签</p>
+  <p>第35个标签</p>
+  <p>第36个标签</p>
+  <p>第37个标签</p>
+  <p>第38个标签</p>
+  <p>第39个标签</p>
+  <p>第40个标签</p>
+  <p>第41个标签</p>
+  <p>第42个标签</p>
+  <p>第43个标签</p>
+  <p>第44个标签</p>
+  <p>第45个标签</p>
+  <p>第46个标签</p>
+  <p>第47个标签</p>
+  <p>第48个标签</p>
+  <p>第49个标签</p>
+  <p>第50个标签</p>
+  <p>第51个标签</p>
+  <p>第52个标签</p>
+  <p>第53个标签</p>
+  <p>第54个标签</p>
+  <p>第55个标签</p>
+  <p>第56个标签</p>
+  <p>第57个标签</p>
+  <p>第58个标签</p>
+  <p>第59个标签</p>
+  <p>第60个标签</p>
+  <p>第61个标签</p>
+  <p>第62个标签</p>
+  <p>第63个标签</p>
+  <p>第64个标签</p>
+  <p>第65个标签</p>
+  <p>第66个标签</p>
+  <p>第67个标签</p>
+  <p>第68个标签</p>
+  <p>第69个标签</p>
+  <p>第70个标签</p>
+  <p>第71个标签</p>
+  <p>第72个标签</p>
+  <p>第73个标签</p>
+  <p>第74个标签</p>
+  <p>第75个标签</p>
+  <p>第76个标签</p>
+  <p>第77个标签</p>
+  <p>第78个标签</p>
+  <p>第79个标签</p>
+  <p>第80个标签</p>
+  <p>第81个标签</p>
+  <p>第82个标签</p>
+  <p>第83个标签</p>
+  <p>第84个标签</p>
+  <p>第85个标签</p>
+  <p>第86个标签</p>
+  <p>第87个标签</p>
+  <p>第88个标签</p>
+  <p>第89个标签</p>
+  <p>第90个标签</p>
+  <p>第91个标签</p>
+  <p>第92个标签</p>
+  <p>第93个标签</p>
+  <p>第94个标签</p>
+  <p>第95个标签</p>
+  <p>第96个标签</p>
+  <p>第97个标签</p>
+  <p>第98个标签</p>
+  <p>第99个标签</p>
+  <p>第100个标签</p>
+  <script src="./com.js"></script>
+  <script>
+    var header = getId("header");
+    var ot = header.offsetTop;
+    window.onscroll = function(){
+      // 获取页面的scrollTop
+      var st = document.documentElement.scrollTop;
+
+      if (st >= ot){
+        // 把header盒子固定位置
+        header.style.position = "fixed";
+        header.style.top = "0";
+      }else {
+        header.style.position = "";
+        header.style.top = "";
+      }
+    }
+  </script>
+</body>
+</html>

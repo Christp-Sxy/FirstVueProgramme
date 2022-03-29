@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="uu">
+    <li>
+      列表1
+      <button>按钮1</button>
+    </li>
+    <li>
+      列表2
+      <button>按钮2</button>
+    </li>
+    <li>
+      列表3
+      <button>按钮3</button>
+    </li>
+    <li>
+      列表4
+      <button>按钮4</button>
+    </li>
+    <li>
+      列表5
+      <button>按钮5</button>
+    </li>
+    <li>
+      列表6
+      <button>按钮6</button>
+    </li>
+  </ul>
+
+  <button id="btn">添加</button>
+  <script src="./com.js"></script>
+  <script>
+    // 点击按钮添加一条li
+    getId("btn").onclick = function () {
+      var newLi = document.createElement("li");
+      newLi.innerHTML = "新列表<button>按钮</button>"
+      getId("uu").appendChild(newLi);
+    }
+    // 点击li的按钮，获取当前的text
+    // 新增元素没有事件（因为添加之前，事件绑定已经结束了）
+    /* var btns = getEle("uu", "button");
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].onclick = function(){
+        alert(this.parentElement.innerText);
+      }
+    } */
+
+    // 只委托给也页面本来 就存在的父级
+    getId("uu").onclick = function(e){
+      var e = e || window.event;
+      var tar = e.target;
+      if (tar.nodeName == "BUTTON"){
+        alert(tar.parentElement.innerText);
+      } 
+    }
+  </script>
+</body>
+
+</html>

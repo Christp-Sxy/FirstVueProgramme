@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box" class="current">
+    <h2>
+      <span class="current">新闻</span>
+      <span>娱乐</span>
+      <span>游戏</span>
+      <span>财经</span>
+    </h2>
+    <ul>
+      <li class="current">新闻</li>
+      <li>娱乐</li>
+      <li>游戏</li>
+      <li>财经</li>
+    </ul>
+  </div>
+  <script>
+    var btns = document.getElementById("box").getElementsByTagName("span");
+    var btns = document.getElementById("box").getElementsByTagName("li");
+    console.log(btns);
+    for (let i = 0; index < btns.length; i++) {
+      btns[i].onclick = function(){
+        
+      }
+    }
+  </script>
+</body>
+</html>

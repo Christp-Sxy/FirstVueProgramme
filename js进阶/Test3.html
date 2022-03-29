@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <ul id="uu">
+    <li>小明的成绩</li>
+    <li>小丽的成绩</li>
+    <li>小花的成绩</li>
+    <li>小李的成绩</li>
+    <li>乔峰的成绩</li>
+  </ul>
+
+  <script src="com.js"></script>
+  <script>
+    // 1.获取li集合
+    var lis = getEle("uu", "li");
+    
+    // 2.遍历并且绑定事件
+    for (let i = 0; i < lis.length; i++) {
+      // 3.1假设每个人都有成绩
+      lis[i].setAttribute("score", (i + 4) * 10);
+      lis[i].onclick = function() {
+        // 3.显示成绩
+        alert(this.getAttribute("score"));
+      }      
+    }
+  </script>
+</body>
+</html>

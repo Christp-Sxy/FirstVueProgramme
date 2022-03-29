@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #odiv {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <div id="odiv"></div>
+  <script src="./com.js"></script>
+  <script>
+    var btn = getId("btn");
+    var odiv = getId("odiv");
+    var oleft = 0;
+    var timer = null;
+    btn.onclick = function(){
+      // 防止定时器叠加的情况，先关闭定时器
+      clearInterval(timer);
+
+      timer = setInterval(function(){
+        oleft += 5;
+        if (oleft > 800){
+          oleft = 0;
+        }
+        odiv.style.left = oleft + "px";
+      }, 50)
+    }
+
+    // 定时器叠加
+  </script>
+</body>
+</html>
