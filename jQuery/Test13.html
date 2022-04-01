@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <input type="checkbox" name="" id="sAll">
+  <p id="txt">全选</p>
+  <table id="tab">
+    <tr>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+  </table>
+  <button id="rev">反选</button>
+  <script>
+    // 全选功能
+    $("#sAll").click(function(){
+      $("#tab input").prop("checked", $(this).prop("checked"));
+      $("#txt").text($(this).prop("checked") ? "全不选" : "全选");
+    })
+
+    // 反选功能
+    $("#tab input").click(fn);
+    
+    function fn() {
+      $("#sAll").prop("checked", $("#tab input").length == $("#tab input:checked").length ? true : false);
+      $("#txt").text($("#sAll").prop("checked") ? "全不选" : "全选");
+    }
+
+    // 反选按钮
+    $("#rev").click(function(){
+      for (let i = 0; i < $("#tab input").length; i++) {
+        $("#tab input").eq(i).prop("checked", !$("#tab input").eq(i).prop("checked"))
+      }
+      fn();
+    })
+  </script>
+</body>
+</html>

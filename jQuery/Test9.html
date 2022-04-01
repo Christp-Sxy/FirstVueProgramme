@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .all ul li.current {
+      display: block;
+    }
+  </style>
+  <script src=""></script>
+</head>
+<body>
+  <div id="box" class="all">
+    <h2>
+      <span class="current">新闻</span>
+      <span>娱乐</span>
+      <span>游戏</span>
+      <span>财经</span>
+    </h2>
+    <ul>
+      <li class="current">新闻</li>
+      <li>娱乐</li>
+      <li>游戏</li>
+      <li>财经</li>
+    </ul>
+  </div>
+  <script>
+    $("#box span").click(function(){
+      var i = $(this).index();
+      $(this).addClass("current").siblings().removeClass("current");
+      // 对应盒子的显示（界面的修改）
+      $("#box li").eq(i).addClass("current").siblings().removeClass("current");
+    })
+  </script>
+</body>
+</html>

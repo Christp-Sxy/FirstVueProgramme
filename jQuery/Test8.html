@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style></style>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div id="box">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+  </div>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+  <script>
+    $("#box button").click(function(){
+      var i = $(this).index();
+      // console.log($("ul>li:eq(3)")[0]);
+      console.log($("ul>li").eq(i - 1)[0]);
+    })
+  </script>
+</body>
+
+</html>

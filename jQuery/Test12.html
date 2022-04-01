@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <input type="text" >
+  <button id="btn">发布</button>
+  <script>
+    $("#btn").click(function(){
+      // var content = $("input").val().trim();
+      var content = $.trim($("#content").val());
+      if (content){
+        alert("输入成功");
+      }else {
+        alert("抱歉，输入为空");
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li>
+      <p>12321321</p>
+      <img src="C:\Users\sxy\Pictures\Saved Pictures\sample.jpg" alt="sorry"/>
+    </li>
+    <li>
+      <p>1232139089021</p>
+      <img src="C:\Users\sxy\Pictures\Saved Pictures\i.jpg" alt="sorry"/>
+    </li>
+  </ul>
+  <script>
+    // 方式1
+    /* $("li").mouseenter(function() {
+      $(this).children("p").hide();
+      $(this).children("img").show();
+    })
+
+    $("li").mouseleave(function() {
+      $(this).children("p").show();
+      $(this).children("img").hide();
+    }) */
+
+    // 方式2
+    /* $("li").hover(function() {
+      $(this).children("p").hide().siblings("img").show();
+    }, function() {
+      $(this).children("img").hide().siblings("p").show();
+    }) */
+
+    // 方式3
+    /* $("li").hover(function() {
+      $(this).children().toggle();
+    }, function() {
+      $(this).children().toggle();
+    }) */
+
+    // 方式4
+    $("li").hover(function() {
+      // 只有一个out回调时，移入移出都会触发
+      $(this).children().toggle();
+    });
+  </script>
+</body>
+</html>

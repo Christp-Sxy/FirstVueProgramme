@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .open {
+      display: block;
+      overflow: hidden;
+    }
+
+    ol {
+      display: none;
+    }
+
+  </style>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li>
+      <ol>
+        <span>音乐</span>
+        <li>YoungBlood</li>
+        <li>Edge Of My Life</li>
+        <li>Surviver</li>
+      </ol>
+    </li>
+    <li>
+      <ol>
+        <span>游戏</span>
+        <li>CF</li>
+        <li>LOL</li>
+        <li>APEX</li>
+      </ol>
+    </li>
+    <li>
+      <ol>
+        <span>电影</span>
+        <li>泰坦尼克号</li>
+        <li>哈利波特</li>
+        <li>精武门</li>
+      </ol>
+    </li>
+  </ul>
+  <script>
+    /* $("span").click(function(){
+      $(this).toggleClass("open").siblings("ol").slideToggle();
+      $(this).parent().siblings().children("span").removeClass("open").siblings("ol").slideUp();
+    }) */
+
+    $("span").click(function(){
+      $(this).toggleClass("open").siblings("ol").slideToggle().parent().siblings().children("span").removeClass("open").siblings("ol").slideUp();
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style></style>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h3>获取表单元素的值</h3>
+  <input type="text" id="txt">
+  <textarea name="" id="area" cols="30" rows="10"></textarea>
+  <select name="" id="sele">
+    <option value="0">p</option>
+    <option value="1">p2</option>
+    <option value="2">p3</option>
+  </select>
+  <button>获取</button>
+  <script>
+    $("button").click(function(){
+      console.log($("txt").val());
+      $
+    })
+
+    $("#sele").change(function(){
+      console.log($(this).val());
+    })
+  </script>
+</body>
+</html>
