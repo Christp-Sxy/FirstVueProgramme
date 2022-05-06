@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios 发送AJAX请求</title>
+  <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+</head>
+<body>
+  <button>GET</button>
+  <button>POST</button>
+  <button>AJAX</button>
+
+  <script>
+    const btns = document.querySelectorAll("button");
+
+    // 配置baseURL
+    axios.defaults.baseURL = 'http://localhost:8095';
+
+    btns[0].onclick = function() {
+      axios.get('/Axios', {
+        // url参数
+        params: {
+          id: 100, 
+          vip: 8
+        },
+
+        // 请求头信息
+        headers: {
+          name: 'wdnmd',
+          address: '22'
+        }
+      }).then((value) => {
+        console.log(value);
+      })
+    }
+
+    btns[1].onclick = () => {
+      // 第一个参数url，第二个参数请求体，第三个参数是其他配置
+      axios.post('/Axios', {
+        // 请求体
+        user: 'christp',
+        pwd: 'ss'
+      }, {
+        // url
+        params: {
+          id: 31,
+          vip: 1
+        },
+        // 请求头参数
+        headers: {
+          dd: 123,
+          dsf: 'dds'
+        }
+      })
+    }
+
+    btns[2].onclick = function() {
+      axios({
+        // url
+        url: 'http://127.0.0.1:8095/server',
+        // url参数
+        params: {
+          vv: 22,
+          id: 3
+        },
+        // headers
+        headers: {
+          dd: 'sada',
+          ss: 'sadf'
+        },
+        data: {
+          a: 100,
+          b: 200
+        }
+      }).then(response => {
+        console.log(response);
+        // 响应状态码
+        console.log(resonsee.status);
+        // 响应状态字符串 
+        console.log(resonsee.statusText);
+      });
+    }
+  </script>
+</body>
+</html>

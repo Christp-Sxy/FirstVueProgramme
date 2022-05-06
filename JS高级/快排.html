@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 获取10到999间的100个整数
+    function getRandomNumber(min, max, total) {
+      let arr = [];
+      for (let i = 0; i < total; i++) {
+        arr.push(Math.floor(Math.random() * (max - min + 1) + min));
+      }
+      return arr;
+    }
+
+    function arrSort(_arr) {
+      // 5.递归出口
+      if (_arr.length <= 1){
+        return _arr;
+      }
+
+      // 1.取出中间数，并且改变原数组
+      let index = Math.floor(_arr.length / 2);
+      let mid = _arr.splice(index, 1)[0];
+      // 2.比较原数组，小于自己的数放在左边，反之放右边
+      let left = [], right = [];
+      _arr.forEach(item => {
+        if (item > mid){
+          right.push(item);
+        } else {
+          left.push(item);
+        }
+      })
+
+
+      // 3.数组拼接
+      // 4.递归调用
+      
+      return arrSort(left).concat(mid, arrSort(right));
+    }
+
+    console.log(arrSort(getRandomNumber(10, 999, 100)));
+  </script>
+</body>
+</html>

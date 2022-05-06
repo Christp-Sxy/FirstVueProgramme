@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    p {
+      width: 100px;
+      height: 100px;
+      background: #cff;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <button @click="isShow = !isShow">按钮</button>
+    <p v-myshow="isShow"></p>
+  </div>  
+  <script>
+    /* // 全局写法
+    Vue.directive("myshow", {
+      bind(el, binding) {
+            // 这个指令会在页面一加载的时候就会执行，并且只执行一次
+            // el 表示这个被绑定的元素
+            // binding 是此次被绑定信息的对象
+            // binding.value 可以获取到isShow的值
+            console.log("sdfa");
+          },
+          update(el, binding) {
+            // 被绑定的标签的子节点发生变化的时候，会执行这里的代码
+            // 由于v-myShow是p标签的子节点，因此只要v-myShow发生变化的时候，就会执行相应的代码
+            // el和binding代表的和上面的是一样的
+            el.style.display = binding.value ? "none" : "block"
+          }
+    }) */
+
+    new Vue({
+      el:'#app',
+      data:{
+        isShow: true
+      },
+      directives: {
+        myshow: {
+          bind(el, binding) {
+            // 这个指令会在页面一加载的时候就会执行，并且只执行一次
+            // el 表示这个被绑定的元素
+            // binding 是此次被绑定信息的对象
+            // binding.value 可以获取到isShow的值
+            console.log("sdfa");
+          },
+          update(el, binding) {
+            // 被绑定的标签的子节点发生变化的时候，会执行这里的代码
+            // 由于v-myShow是p标签的子节点，因此只要v-myShow发生变化的时候，就会执行相应的代码
+            // el和binding代表的和上面的是一样的
+            el.style.display = binding.value ? "none" : "block"
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

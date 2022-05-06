@@ -1,0 +1,10 @@
+/* pages/home/home.wxss */
+.box {
+    width: 200rpx;
+    background-color: bisque;
+}
+
+/* 
+    一般常用rpx作为单位，用以适配所有机型
+    换算关系: 1px = 2rpx
+*/

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj1 = {
+      name: "张三",
+      age: 36,
+      eat(){
+        console.log("真能吃");
+      },
+      add(a, b){
+        return a + b;
+      }
+    }
+
+    var obj2 = {
+      name: "张三",
+      age: 45
+    }
+
+    obj1.eat();
+
+    console.log(obj1.add(1, 2));
+    // console.log(obj1.add().call(obj2, 2, 4));
+    // console.log(obj1.add().apply(obj2, [2, 4]));
+    console.log(Object instanceof Function);
+    console.log(Function instanceof Object);
+    console.log(Function.prototype instanceof Object);
+    console.log(Object.prototype instanceof Function);
+    console.log(Object.prototype.toString.call("sdfs"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+        }
+        .whotalk{
+            width:80px;
+            height:30px;
+            float:left;
+            outline:none;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .talk_sub{
+            width:56px;
+            height:30px;
+            float:left;
+            margin-left:10px;
+        }
+        .atalk{
+            margin:10px; 
+        }
+        .atalk span{ 
+            display:inline-block;
+            background:green;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:blue;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="talk_con">
+        <div class="talk_show" id="words">
+            <!-- v-bind中是js环境，因此变量不需要用引号，但是具体名字是要的 -->
+            <div :class="item.who==='A'?'atalk':'btalk'" v-for="item, index in arr">
+                <i 
+                    v-show="item.who === 'B'" 
+                    v-if="BBool && item.isShowWords" 
+                    @click="arr[index].isShowWords = false"
+                    >
+                    撤回
+                </i>
+                <span 
+                    @mouseover="hdClick1(item.who)"
+                    @mouseleave="hdClick2(item.who)"
+                    v-if="item.isShowWords"
+                    >
+                    {{item.who}}说：{{ item.words }}
+                </span>
+                <p 
+                    style="text-align:center" 
+                    v-else
+                    >
+                    {{item.who}}撤回了一条消息
+                </p>
+                <i 
+                    v-show="item.who === 'A'" 
+                    v-if="ABool && item.isShowWords"
+                    @click="arr[index].isShowWords = false"
+                    >
+                    撤回
+                </i>
+            </div>
+            <!-- <div class="btalk"><span>B说：还没呢，你呢？</span></div> -->
+        </div>
+        <div class="talk_input">
+            <select class="whotalk" id="who" v-model="selVal">
+                <option value="A">A说: </option>
+                <option value="B">B说: </option>
+            </select>
+            <input type="text" class="talk_word" id="talkwords" v-model="txtVal">
+            <input type="button" value="发送" class="talk_sub" id="talksub" @click="send()">
+        </div>
+        {{test}}
+    </div>
+
+    <script>
+        new Vue({
+            el: ".talk_con",
+            data: {
+                ABool: false,
+                BBool: false,
+                txtVal: "",
+                selVal: "A",
+                arr: [
+                    {
+                        who: "A",
+                        words: "吃饭了吗？",
+                        isShowWords: true
+                    },
+                    {
+                        who: "B",
+                        words: "还没呢，你呢？",
+                        isShowWords: true
+                    }],
+            },
+            methods: {
+                send(){
+                    // 往数组中添加一个元素
+                    this.arr.push({who: this.selVal, words: this.txtVal, isShowWords: true});
+                    this.txtVal = "";
+                },
+                hdClick1(who){
+                    who === "A" ? this.ABool = true : this.BBool = true;
+                },
+                hdClick2(who){
+                    setTimeout(() => {
+                        who === "A" ? this.ABool = false : this.BBool = false;
+                    }, 1000)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

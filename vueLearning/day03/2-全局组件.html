@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <!-- 通过标签属性，把值传进属性内部 -->
+    <my-header title="购物车"></my-header>
+    <my-header></my-header>
+  </div>  
+
+  <template id="tmp1">
+    <!-- 此时的title的值就是标签属性内部的值 -->
+    <h1>My Header{{title}}</h1>
+  </template>
+  <script>
+    // Vue.component("my-header", {
+    //   template: "#tmp1"
+    // })
+    new Vue({
+      el:'#app',
+      data:{
+        
+      },
+      // 注册组件
+      components: {
+        "my-header": {
+          template: "#tmp1",
+          props: ["title"]
+        }
+      }
+    })
+  </script>
+</body>
+</html>

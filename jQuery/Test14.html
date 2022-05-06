@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      height: 350px;
+      width: 500px;
+      background: azure;
+    }
+
+    #box {
+      text-align: center;
+      height: 50px;
+      width: 75px;
+      float: right;
+      position: relative;
+      color: white;
+      background: orange;
+      border-radius: 5px;
+    }
+
+    textarea.active {
+      border: 1px solid blueviolet;
+    }
+
+    div.active {
+      opacity: 1.5;
+      cursor: pointer;
+    }
+  </style>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section>
+    <h4>有什么新鲜事想告诉大家</h4>
+    <textarea cols="55" rows="3"></textarea>
+    <div id="box">发布</div>
+
+    <ul>
+
+    </ul>
+  </section>
+
+  <script>
+
+    // 聚焦事件绑定
+    $("textarea").focus(function(){
+      $("textarea").addClass("active");
+    })
+    // 失焦事件绑定
+    $("textarea").blur(function(){
+      $("textarea").removeClass("active");
+    })
+
+    $("textarea").keyup(function(){
+      var txt = $(this).val().trim();
+      if (txt){
+        $("div").addClass("active");
+      }else {
+        $("div").removeClass("active");
+      }
+      if (e.keyCode == 13){
+        if (txt){
+          // 模板字符串
+          $("ul").prepend(`
+            <li>
+              <p>${txt}</p>
+              <span></span>
+            </li>
+          `);
+          $(this).val("");
+        }else {
+          alert("请输入文字");
+        }
+      }
+    })
+
+    function clickAble() {
+      
+    }
+  </script>
+</body>
+</html>

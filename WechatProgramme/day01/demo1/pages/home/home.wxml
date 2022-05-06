@@ -1,0 +1,17 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<view class="box">
+    这是box容器
+</view>
+<view>{{num}}</view>
+<button type="default" bindtap="hdTap" data-val="{{20}}">按钮</button>
+<!-- 
+    上面的20如果把双大括号去掉的话，就变成了字符串，加上的话，里面的值加引号变为字符串，不加引号则是数字
+ -->
+<!--
+    click 是pc端专用的点击事件，在移动端会有200-300ms的延迟
+    移动端一般使用tap作为点击事件的监听，效果是一样的
+
+    微信小程序中双向数据绑定变成了value属性或者input标签
+-->
+

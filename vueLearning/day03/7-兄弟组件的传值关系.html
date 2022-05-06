@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app'>
+    <child1></child1>
+    <child2></child2>
+  </div>  
+
+  <template id="tmp1">
+    <button :style="{background: bgc}">按钮1</button>
+  </template>
+  <template id="tmp2">
+    <button @click="hdClick2">按钮2</button>
+  </template>
+  <script>
+    // 创建一个空的vue对象用来监听和触发自定义事件
+    let bus = new Vue();
+
+    let child1 = {
+      template: "#tmp1",
+      data(){
+        return {
+          bgc: "red"
+        }
+      },
+      
+      created() {
+        // 组件被刚创建的时候执行代码（页面一刷新）
+        //在需要被修改的组件中开启自定义事件监听
+        bus.$on("changeBgc", val => {
+          this.bgc = val;
+        })
+      }
+    }
+
+    let child2 = {
+      template: "#tmp2",
+      methods: {
+        // 修改组件1按钮1的bgc
+        // 触发被修改组件中的事件
+        hdClick2(){
+          bus.$emit("changeBgc", "skyblue")
+        }
+      }
+    }
+
+    new Vue({
+      el:'#app',
+      data:{
+      },
+      components: {
+        child1, child2
+      }
+    })
+  </script>
+</body>
+</html>

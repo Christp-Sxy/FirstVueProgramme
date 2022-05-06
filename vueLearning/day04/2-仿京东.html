@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    *{margin: 0; padding: 0; list-style: none;}
+
+    header{
+      width: 350px;
+      height: 50px;
+      background-color: #cff;
+      display: flex;
+      text-align: center;
+    }
+
+    .l, .r {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 30px;
+      background-color: #cfc;
+    }
+
+    .c {
+      /* 可以将中间撑满 */
+      flex: 1;
+      line-height:50px;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+<body>
+  <!-- 插槽作用: 提高组件的复用性和可扩展性(灵活性) -->
+  <div id='app'>
+    <my-header>
+      <input type="text" slot="ipt">
+        <h3 slot="shopping_cart">购物车</h3>
+        <ul slot="showTable">
+          <li>商品</li>
+          <li>评价</li>
+          <li>详情</li>
+        </ul>
+    </my-header>
+  </div>  
+  <template id="tmpl">
+    <div>
+      <header>
+        <div class="l">&lt;</div>
+        <div class="c">
+          <slot :name="slotName"></slot>
+        </div>
+        <div class="r">···</div>
+      </header>
+      <button @click="hdClick1('ipt')">搜索</button>
+      <button @click="hdClick1('shopping_cart')">购物车</button>
+      <button @click="hdClick1('showTable')">小标题</button>
+    </div>
+    
+  </template>
+  <script>
+    let myHeader = {
+      template: '#tmpl',
+      data() {
+        return {
+          slotName: "ipt"
+        }
+      },
+      methods: {
+        hdClick1(val){
+          this.slotName = val;
+        }
+      }
+    }
+
+    new Vue({
+      el:'#app',
+      data:{
+  
+      }, 
+      components: {
+        myHeader
+      }
+    })
+  </script>
+</body>
+</html>

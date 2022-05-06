@@ -1,0 +1,4 @@
+/**index.wxss**/
+.box {
+    background-color: #fcf;
+}
